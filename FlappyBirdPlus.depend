@@ -1,0 +1,19 @@
+# depslib dependency file v1.0
+1740967681 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\main.cpp
+	"FlappyBirdPlus.h"
+
+1741314407 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.cpp
+	"FlappyBirdPlus.h"
+	<iostream>
+	<cstdlib>
+	<ctime>
+	<cstdlib>
+
+1741314504 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<vector>
+	<string>
+
