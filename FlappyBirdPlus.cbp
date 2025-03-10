@@ -31,8 +31,14 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="FlappyBirdHighScore.cpp" />
+		<Unit filename="FlappyBirdMenu.cpp" />
+		<Unit filename="FlappyBirdPipe.cpp" />
 		<Unit filename="FlappyBirdPlus.cpp" />
 		<Unit filename="FlappyBirdPlus.h" />
+		<Unit filename="FlappyBirdRendering.cpp" />
+		<Unit filename="FlappyBirdSetting.cpp" />
+		<Unit filename="FlappyBirdSounds.cpp" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
