@@ -1,16 +1,20 @@
 #include "FlappyBirdPlus.h"
 
 // Hàm để vẽ một hình tròn (dùng SDL2_gfx hoặc tự vẽ nếu không có thư viện)
-void drawCircle(SDL_Renderer* renderer, int x, int y, int radius, SDL_Color color) {
+void drawCircle(SDL_Renderer* renderer, int x, int y, int radius, SDL_Color color)
+{
     // Chúng ta sẽ vẽ một hình tròn bằng cách sử dụng SDL_RenderDrawPoint hoặc SDL_RenderDrawLine
     // Nếu bạn dùng SDL2_gfx, thì sử dụng hàm "circleColor"
     SDL_SetRenderDrawColor(renderer, color.r, color.g, color.b, color.a);
 
-    for (int w = 0; w < radius * 2; w++) {
-        for (int h = 0; h < radius * 2; h++) {
+    for (int w = 0; w < radius * 2; w++)
+    {
+        for (int h = 0; h < radius * 2; h++)
+        {
             int dx = radius - w;  // X khoảng cách từ điểm giữa
             int dy = radius - h;  // Y khoảng cách từ điểm giữa
-            if ((dx * dx + dy * dy) <= (radius * radius)) {
+            if ((dx * dx + dy * dy) <= (radius * radius))
+            {
                 SDL_RenderDrawPoint(renderer, x + dx, y + dy);
             }
         }
@@ -68,7 +72,7 @@ void FlappyBirdGame::showSettings()
             {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-                if (mouseX >= 520 && mouseX <= 785 && mouseY >= 450 && mouseY <= 500)
+                if (mouseX >= 0 && mouseX <= 130 && mouseY >= 0 && mouseY <= 70)
                 {
                     Mix_PlayChannel(-1, clickSound, 0);
                     showMenu();  // Quay lại menu chính
@@ -103,7 +107,7 @@ void FlappyBirdGame::showSettings()
 
         // Vẽ nút Back to Menu
         SDL_Rect backButtonRect = {500, 450, 100, 50};
-        renderText("Back", 560, 460, {255, 255, 255});
+        renderText("Back", 10, 10, {255, 255, 255});
 
         SDL_RenderPresent(renderer);
         SDL_Delay(16);

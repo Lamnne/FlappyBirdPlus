@@ -21,3 +21,5 @@ void FlappyBirdGame::stopMusic()
         Mix_HaltMusic();  // Dừng nhạc hiện tại
     }
 }
+
+

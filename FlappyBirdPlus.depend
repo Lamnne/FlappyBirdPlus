@@ -1,16 +1,17 @@
 # depslib dependency file v1.0
-1741589582 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\main.cpp
+1741675858 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\main.cpp
 	"FlappyBirdPlus.h"
 
-1741625407 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.cpp
+1741680353 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.cpp
 	"FlappyBirdPlus.h"
 	<iostream>
 	<cstdlib>
 	<ctime>
 	<cstdlib>
 	<fstream>
+	<algorithm>
 
-1741625262 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.h
+1741680612 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
@@ -19,23 +20,24 @@
 	<string>
 	<ostream>
 
-1741619425 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdhighscore.cpp
+1741680353 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdhighscore.cpp
 	"FlappyBirdPlus.h"
 	<fstream>
 
-1741609820 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdpipe.cpp
-	"FlappyBirdPlus.h"
-
-1741615412 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdsounds.cpp
-	"FlappyBirdPlus.h"
-
-1741621992 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdrendering.cpp
+1741680353 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdpipe.cpp
 	"FlappyBirdPlus.h"
 	<iostream>
 
-1741625672 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdmenu.cpp
+1741676783 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdsounds.cpp
 	"FlappyBirdPlus.h"
 
-1741627186 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdsetting.cpp
+1741680608 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdrendering.cpp
+	"FlappyBirdPlus.h"
+	<iostream>
+
+1741680612 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdmenu.cpp
+	"FlappyBirdPlus.h"
+
+1741680612 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdsetting.cpp
 	"FlappyBirdPlus.h"
 

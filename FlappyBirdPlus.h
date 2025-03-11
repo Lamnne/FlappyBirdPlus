@@ -26,6 +26,14 @@ struct Pipe
     bool hasPassed;
 };
 
+struct Coin
+{
+    int x, y;
+    bool collected;
+};
+extern vector<Coin> coins;
+
+
 class FlappyBirdGame
 {
 public:
@@ -61,10 +69,15 @@ private:
     SDL_Texture* backtomenuButtonTexture;
     SDL_Rect backtomenuButtonRect;
 
+    SDL_Texture* coinTexture;  // Hình ảnh đồng xu
     SDL_Texture* settingButtonTexture;
     SDL_Rect settingButtonRect;
     int birdY, birdVelocity, score;
     bool birdJumping;
+
+    int coinCount;  // Số đồng xu thu thập được
+
+    int totalCoins = 0;  // Tổng số coins từ tất cả các lần chơi
 
     TTF_Font* font;
 
@@ -85,6 +98,8 @@ private:
     Mix_Chunk* clickSound;
     Mix_Music* menuMusic;
     Mix_Music* gameMusic;
+    Mix_Chunk* coinSound;  // Âm thanh khi thu thập đồng xu
+
     void showGameOverMenu();
     void updateGame();
     void render();
@@ -95,6 +110,12 @@ private:
     void startGame();
     void loadHighScore();  // Hàm đọc điểm số cao nhất từ tệp
     void saveHighScore();  // Hàm ghi điểm số cao nhất vào tệp
+    void generateCoin(int pipeX, int pipeY); // Tạo đồng xu ngẫu nhiên
+    void checkCoinCollision();               // Kiểm tra va chạm với chim
+    void displayCoinCount();                 // Hiển thị số đồng xu thu được
+    void loadTotalCoins();  // Đọc tổng số coin từ file
+    void saveTotalCoins();  // Lưu tổng số coin vào file
+
 };
 
 #endif // FLAPPY_BIRD_GAME_H

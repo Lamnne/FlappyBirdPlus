@@ -28,7 +28,7 @@ void FlappyBirdGame::showMenu()
                     quit = true;  // Thoát khỏi menu và bắt đầu trò chơi
                 }
                 else if (mouseX >= exitButtonRect.x && mouseX <= 800 &&
-                        mouseY >= exitButtonRect.y && mouseY <= exitButtonRect.y + exitButtonRect.h)
+                         mouseY >= exitButtonRect.y && mouseY <= exitButtonRect.y + exitButtonRect.h)
                 {
                     Mix_PlayChannel(-1, clickSound, 0);
                     SDL_Quit();      // Đóng cửa sổ và kết thúc SDL
@@ -38,7 +38,7 @@ void FlappyBirdGame::showMenu()
                     exit(0);         // Thoát hoàn toàn chương trình
                 }
                 else if (mouseX >= settingButtonRect.x && mouseX <= settingButtonRect.x + settingButtonRect.w &&
-                        mouseY >= settingButtonRect.y && mouseY <= settingButtonRect.y + settingButtonRect.h)
+                         mouseY >= settingButtonRect.y && mouseY <= settingButtonRect.y + settingButtonRect.h)
                 {
                     Mix_PlayChannel(-1, clickSound, 0);
                     showSettings();
@@ -63,8 +63,10 @@ void FlappyBirdGame::showMenu()
         exitButtonRect = { 500, 430, 100, 100 };
         SDL_RenderCopy(renderer, exitButtonTexture, nullptr, &exitButtonRect);
         SDL_RenderCopy(renderer, settingButtonTexture, nullptr, &settingButtonRect);
+        font = TTF_OpenFont("cutefont.ttf", 30);
+        // Vẽ màn hình menu
+        renderText("Coins: " + to_string(totalCoins), 1030, 10, {255, 255, 255});
         SDL_RenderPresent(renderer);
-
         SDL_Delay(16);
     }
 

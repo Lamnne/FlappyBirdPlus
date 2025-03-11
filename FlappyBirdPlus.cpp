@@ -4,6 +4,9 @@
 #include <ctime>
 #include <cstdlib>
 #include<fstream>
+#include <algorithm>
+
+vector<Coin> coins;
 
 FlappyBirdGame::FlappyBirdGame() : birdY(SCREEN_HEIGHT / 2), birdVelocity(0), score(0), birdJumping(false), currentBackgroundIndex(0), pipeVelocity(INITIAL_PIPE_VELOCITY)
 {
@@ -154,6 +157,17 @@ FlappyBirdGame::FlappyBirdGame() : birdY(SCREEN_HEIGHT / 2), birdVelocity(0), sc
         exit(1);
     }
 
+    coinTexture = IMG_LoadTexture(renderer, "coin.png");
+    if (coinTexture == nullptr)
+    {
+        cerr << "SDL_image: Error loading coin image! " << IMG_GetError() << endl;
+        SDL_Quit();
+        TTF_Quit();
+        IMG_Quit();
+        Mix_Quit();
+        exit(1);
+    }
+
     generatePipe();
 
     jumpSound = Mix_LoadWAV("jump_sound.mp3");
@@ -201,12 +215,27 @@ FlappyBirdGame::FlappyBirdGame() : birdY(SCREEN_HEIGHT / 2), birdVelocity(0), sc
         cerr << "SDL_mixer: Error loading game music! " << Mix_GetError() << endl;
         exit(1);
     }
+    coinSound = Mix_LoadWAV("coin_sound.mp3");
+    if (coinSound == nullptr)
+    {
+        cerr << "SDL_mixer: Error loading coin sound! " << Mix_GetError() << endl;
+        exit(1);
+    }
+
+    if (coinSound == nullptr)
+    {
+        cerr << "SDL_mixer: Error loading coin sound! " << Mix_GetError() << endl;
+        exit(1);
+    }
     playMenuMusic();
+    loadTotalCoins();  // Tải tổng số coins từ file khi khởi động game
+
     loadHighScore();
 }
 
 FlappyBirdGame::~FlappyBirdGame()
 {
+    SDL_DestroyTexture(coinTexture);
     SDL_DestroyTexture(birdTexture);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
@@ -225,6 +254,8 @@ FlappyBirdGame::~FlappyBirdGame()
     stopMusic();
     Mix_FreeChunk(jumpSound);
     Mix_FreeChunk(clickSound);
+    Mix_FreeChunk(coinSound);
+
     Mix_Quit();
 
     TTF_Quit();  // Đóng SDL_ttf
@@ -247,11 +278,13 @@ void FlappyBirdGame::run()
                 quit = true;
             }
 
-            if (e.type == SDL_KEYDOWN &&( e.key.keysym.sym == SDLK_SPACE|| e.key.keysym.sym == SDLK_UP ))
+            if ((e.type == SDL_KEYDOWN && (e.key.keysym.sym == SDLK_SPACE || e.key.keysym.sym == SDLK_UP)) ||
+                    (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT))
             {
                 birdVelocity = -JUMP_STRENGTH;
                 Mix_PlayChannel(-1, jumpSound, 0);
             }
+
         }
 
         updateGame();
@@ -283,11 +316,24 @@ void FlappyBirdGame::updateGame()
         if (pipe.x < 100 + BIRD_WIDTH && pipe.x + PIPE_WIDTH > 100 && (birdY < pipe.y || birdY + BIRD_HEIGHT > pipe.y + PIPE_GAP))
         {
             Mix_PlayChannel(-1, crashSound, 0); // Thêm âm thanh va chạm
+            totalCoins +=coinCount;  // Cộng số coin đã thu thập vào tổng coin
+            saveTotalCoins();  // Lưu totalCoins vào file
+            coinCount = 0;  // Reset coinCount khi quay lại menu
             showGameOverMenu();
             return;
         }
-    }
 
+    }
+    for (auto& coin : coins)
+    {
+        coin.x -= pipeVelocity;  // Đồng xu di chuyển với cùng tốc độ ống
+    }
+    checkCoinCollision();
+    // Xóa các đồng xu đã ra khỏi màn hình
+    coins.erase(remove_if(coins.begin(), coins.end(), [](Coin c)
+    {
+        return c.x < -20;
+    }), coins.end());
     if (!pipes.empty() && pipes.back().x < SCREEN_WIDTH - 300)
     {
         generatePipe();
@@ -327,7 +373,9 @@ void FlappyBirdGame::resetGame()
     birdY = SCREEN_HEIGHT / 2;
     birdVelocity = 0;
     score = 0;
+    coinCount = 0;  // Reset số coin khi bắt đầu game mới
     pipes.clear();
+    coins.clear();
     generatePipe();
     pipeVelocity = INITIAL_PIPE_VELOCITY;
     currentBackground = backgroundTextures[0];
@@ -339,4 +387,28 @@ void FlappyBirdGame::startGame()
     resetGame();  // Reset lại trạng thái của game, chẳng hạn như điểm số, vị trí chim
     run();         // Gọi hàm chạy game chính
 }
+void FlappyBirdGame::generateCoin(int pipeX, int pipeY)
+{
+    Coin newCoin;
+    newCoin.x = pipeX + PIPE_WIDTH / 2;
+    newCoin.y = pipeY;
+    newCoin.collected = false;
+    coins.push_back(newCoin);
+}
+
+void FlappyBirdGame::checkCoinCollision()
+{
+    for (auto& coin : coins)
+    {
+        if (!coin.collected &&
+                birdRect.x + BIRD_WIDTH >= coin.x && birdRect.x <= coin.x + 50 &&
+                birdRect.y + BIRD_HEIGHT >= coin.y && birdRect.y <= coin.y + 50)
+        {
+            coin.collected = true;
+            coinCount++;
+            Mix_PlayChannel(-1, coinSound, 0);
+        }
+    }
+}
+
 
