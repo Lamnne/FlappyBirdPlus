@@ -1,0 +1,71 @@
+# depslib dependency file v1.0
+1743318534 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\main.cpp
+	"FlappyBirdPlus.h"
+
+1743318078 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.cpp
+	"FlappyBirdPlus.h"
+	<ctime>
+
+1743307753 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<vector>
+	<string>
+
+1743319443 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdhighscore.cpp
+	"FlappyBirdPlus.h"
+	<fstream>
+
+1743318078 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdpipe.cpp
+	"FlappyBirdPlus.h"
+
+1743318078 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdsounds.cpp
+	"FlappyBirdPlus.h"
+
+1743318078 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdrendering.cpp
+	"FlappyBirdPlus.h"
+
+1743318078 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdmenu.cpp
+	"FlappyBirdPlus.h"
+
+1743319443 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdsetting.cpp
+	"FlappyBirdPlus.h"
+
+1743318078 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdwardrobe.cpp
+	"FlappyBirdPlus.h"
+	<fstream>
+
+1743319443 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\startend.cpp
+	"FlappyBirdPlus.h"
+
+1743319443 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdshield.cpp
+	"FlappyBirdPlus.h"
+	<iostream>
+
+1743319443 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdcoin.cpp
+	"FlappyBirdPlus.h"
+	<fstream>
+
+1743319590 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdrungame.cpp
+	"FlappyBirdPlus.h"
+	<algorithm>
+	<iostream>
+
+1743301709 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\constants.h
+
+1743302106 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\gameobjects.h
+	<vector>
+
+1743302106 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\gameaudio.h
+	<SDL_mixer.h>
+
+1743302487 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\gamerender.h
+	<SDL.h>
+	<vector>
+	<string>
+
+1743303779 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\gamelogic.h
+	"GameObjects.h"
+
