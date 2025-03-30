@@ -110,6 +110,10 @@ FlappyBirdGame::~FlappyBirdGame()
     SDL_DestroyTexture(leftTexture);
     SDL_DestroyTexture(currentBackground);
     SDL_DestroyTexture(shieldTexture);
+    SDL_DestroyTexture(lockTexture);
+    SDL_DestroyTexture(unlockTexture);
+    SDL_DestroyTexture(ynTexture);
+    SDL_DestroyTexture(oopTexture);
     stopMusic();
     Mix_FreeChunk(shieldSound);
     Mix_FreeChunk(jumpSound);
