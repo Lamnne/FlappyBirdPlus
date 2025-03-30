@@ -120,7 +120,7 @@ void FlappyBirdGame::updateGame()
                     currentBackground = backgroundTextures[currentBackgroundIndex];
                 }
             }
-            if (((pipe.x < BIRD_WIDTH +PIPE_WIDTH && pipe.x + BIRD_WIDTH >PIPE_WIDTH )&&(birdY < pipe.y || birdY + BIRD_HEIGHT> pipe.y + PIPE_GAP)) || birdY + BIRD_HEIGHT>= SCREEN_HEIGHT|| birdY <= 0)
+            if (((pipe.x < BIRD_WIDTH +PIPE_WIDTH && pipe.x + PIPE_WIDTH >BIRD_WIDTH )&&(birdY < pipe.y || birdY + BIRD_HEIGHT> pipe.y + PIPE_GAP)) || birdY + BIRD_HEIGHT>= SCREEN_HEIGHT|| birdY <= 0)
             {
                 if (soundEnabled) Mix_PlayChannel(-1, crashSound, 0);
                 SDL_Delay(200);

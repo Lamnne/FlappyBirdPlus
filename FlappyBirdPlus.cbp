@@ -31,20 +31,20 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="FlappyBirdCoin.cpp" />
-		<Unit filename="FlappyBirdHighScore.cpp" />
-		<Unit filename="FlappyBirdMenu.cpp" />
-		<Unit filename="FlappyBirdPipe.cpp" />
-		<Unit filename="FlappyBirdPlus.cpp" />
-		<Unit filename="FlappyBirdPlus.h" />
-		<Unit filename="FlappyBirdRendering.cpp" />
-		<Unit filename="FlappyBirdRungame.cpp" />
-		<Unit filename="FlappyBirdSetting.cpp" />
-		<Unit filename="FlappyBirdShield.cpp" />
-		<Unit filename="FlappyBirdSounds.cpp" />
-		<Unit filename="FlappyBirdWardrobe.cpp" />
 		<Unit filename="main.cpp" />
-		<Unit filename="startend.cpp" />
+		<Unit filename="src/FlappyBirdCoin.cpp" />
+		<Unit filename="src/FlappyBirdHighScore.cpp" />
+		<Unit filename="src/FlappyBirdMenu.cpp" />
+		<Unit filename="src/FlappyBirdPipe.cpp" />
+		<Unit filename="src/FlappyBirdPlus.cpp" />
+		<Unit filename="src/FlappyBirdPlus.h" />
+		<Unit filename="src/FlappyBirdRendering.cpp" />
+		<Unit filename="src/FlappyBirdRungame.cpp" />
+		<Unit filename="src/FlappyBirdSetting.cpp" />
+		<Unit filename="src/FlappyBirdShield.cpp" />
+		<Unit filename="src/FlappyBirdSounds.cpp" />
+		<Unit filename="src/FlappyBirdWardrobe.cpp" />
+		<Unit filename="src/startend.cpp" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
