@@ -6,7 +6,7 @@
 	"FlappyBirdPlus.h"
 	<ctime>
 
-1743307753 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.h
+1743322015 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\flappybirdplus.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
@@ -68,4 +68,55 @@
 
 1743303779 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\gamelogic.h
 	"GameObjects.h"
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdpipe.cpp
+	"FlappyBirdPlus.h"
+
+1743307753 c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdplus.h
+	<SDL.h>
+	<SDL_ttf.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<vector>
+	<string>
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdplus.cpp
+	"FlappyBirdPlus.h"
+	<ctime>
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdrendering.cpp
+	"FlappyBirdPlus.h"
+
+1743319967 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdrungame.cpp
+	"FlappyBirdPlus.h"
+	<algorithm>
+	<iostream>
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdsetting.cpp
+	"FlappyBirdPlus.h"
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdshield.cpp
+	"FlappyBirdPlus.h"
+	<iostream>
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdsounds.cpp
+	"FlappyBirdPlus.h"
+
+1743321913 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdwardrobe.cpp
+	"FlappyBirdPlus.h"
+	<fstream>
+
+1743319967 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\startend.cpp
+	"FlappyBirdPlus.h"
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdcoin.cpp
+	"FlappyBirdPlus.h"
+	<fstream>
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdhighscore.cpp
+	"FlappyBirdPlus.h"
+	<fstream>
+
+1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdmenu.cpp
+	"FlappyBirdPlus.h"
 

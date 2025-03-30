@@ -88,15 +88,15 @@ void FlappyBirdGame::oops()
 void FlappyBirdGame::loadUnlockedSkins() {
     ifstream file("unlocked_skins.txt");
     if (file.is_open()) {
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 0; i <=9; i++) {
             int value;
             file >> value;
             unlockedSkins[i] = (value == 1);
         }
         file.close();
     } else {
-        unlockedSkins[1] = true;
-        for (int i = 2; i <= 10; i++) {
+        unlockedSkins[0] = true;
+        for (int i = 1; i <= 9; i++) {
             unlockedSkins[i] = false;
         }
     }
@@ -105,7 +105,7 @@ void FlappyBirdGame::loadUnlockedSkins() {
 void FlappyBirdGame::saveUnlockedSkins() {
     std::ofstream file("unlocked_skins.txt");
     if (file.is_open()) {
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 0; i <= 9; i++) {
             file << (unlockedSkins[i] ? 1 : 0) << " ";
         }
         file.close();
