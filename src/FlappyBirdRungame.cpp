@@ -1,6 +1,8 @@
 #include "FlappyBirdPlus.h"
 #include <algorithm>
 #include <iostream>
+#define BIRD_X 100
+
 void FlappyBirdGame::run()
 {
     SDL_Event e;
@@ -120,7 +122,11 @@ void FlappyBirdGame::updateGame()
                     currentBackground = backgroundTextures[currentBackgroundIndex];
                 }
             }
-            if (((pipe.x < BIRD_WIDTH +PIPE_WIDTH && pipe.x + PIPE_WIDTH >BIRD_WIDTH )&&(birdY < pipe.y || birdY + BIRD_HEIGHT> pipe.y + PIPE_GAP)) || birdY + BIRD_HEIGHT>= SCREEN_HEIGHT|| birdY <= 0)
+            bool hitPipe = (pipe.x < BIRD_X + BIRD_WIDTH && pipe.x + PIPE_WIDTH > BIRD_X) &&
+               (birdY < pipe.y || birdY + BIRD_HEIGHT > pipe.y + PIPE_GAP) &&
+               (pipe.x + PIPE_WIDTH > BIRD_X);
+            bool hitGroundOrCeiling = (birdY + BIRD_HEIGHT >= SCREEN_HEIGHT || birdY <= 0);
+            if (hitPipe || hitGroundOrCeiling)
             {
                 if (soundEnabled) Mix_PlayChannel(-1, crashSound, 0);
                 SDL_Delay(200);
