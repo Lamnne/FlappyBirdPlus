@@ -56,11 +56,12 @@ void FlappyBirdGame::updateGame()
         coin.x -= pipeVelocity;
     }
     checkCoinCollision();
-    coins.erase(remove_if(coins.begin(), coins.end(), [](Coin c)
+    coins.erase(remove_if(coins.begin(), coins.end(), [](const Coin& c)
     {
         return c.x < -20;
     }), coins.end());
-    shields.erase(remove_if(shields.begin(), shields.end(), [](Shield s)
+
+    shields.erase(remove_if(shields.begin(), shields.end(), [](const Shield& s)
     {
         return s.x < -20;
     }), shields.end());
@@ -123,8 +124,8 @@ void FlappyBirdGame::updateGame()
                 }
             }
             bool hitPipe = (pipe.x < BIRD_X + BIRD_WIDTH && pipe.x + PIPE_WIDTH > BIRD_X) &&
-               (birdY < pipe.y || birdY + BIRD_HEIGHT > pipe.y + PIPE_GAP) &&
-               (pipe.x + PIPE_WIDTH > BIRD_X);
+                           (birdY < pipe.y || birdY + BIRD_HEIGHT > pipe.y + PIPE_GAP) &&
+                           (pipe.x + PIPE_WIDTH > BIRD_X);
             bool hitGroundOrCeiling = (birdY + BIRD_HEIGHT >= SCREEN_HEIGHT || birdY <= 0);
             if (hitPipe || hitGroundOrCeiling)
             {
