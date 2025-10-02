@@ -120,6 +120,7 @@
 1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdmenu.cpp
 	"FlappyBirdPlus.h"
 
+<<<<<<< HEAD
 1758191502 source:d:\flappybirdplus\main.cpp
 	"FlappyBirdPlus.h"
 
@@ -182,3 +183,5 @@
 1758191503 source:d:\flappybirdplus\src\startend.cpp
 	"FlappyBirdPlus.h"
 
+=======
+>>>>>>> 84c37ca2bd18ea985d958119888fea2ed63c46c9

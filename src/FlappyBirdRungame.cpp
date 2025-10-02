@@ -93,7 +93,11 @@ void FlappyBirdGame::updateGame()
                 {
                     pipeVelocity++;
                 }
+<<<<<<< HEAD
                 if (score % 5 == 0)
+=======
+                if (score % 20 == 0)
+>>>>>>> 84c37ca2bd18ea985d958119888fea2ed63c46c9
                 {
                     currentBackgroundIndex = (currentBackgroundIndex + 1) % 5;
                     currentBackground = backgroundTextures[currentBackgroundIndex];
@@ -117,15 +121,24 @@ void FlappyBirdGame::updateGame()
                 {
                     pipeVelocity++;
                 }
+<<<<<<< HEAD
                 if (score % 5 == 0)
+=======
+                if (score % 20 == 0)
+>>>>>>> 84c37ca2bd18ea985d958119888fea2ed63c46c9
                 {
                     currentBackgroundIndex = (currentBackgroundIndex + 1) % 5;
                     currentBackground = backgroundTextures[currentBackgroundIndex];
                 }
             }
             bool hitPipe = (pipe.x < BIRD_X + BIRD_WIDTH && pipe.x + PIPE_WIDTH > BIRD_X) &&
+<<<<<<< HEAD
                                          (birdY < pipe.y || birdY + BIRD_HEIGHT > pipe.y + PIPE_GAP) &&
                                          (pipe.x + PIPE_WIDTH > BIRD_X);
+=======
+                           (birdY < pipe.y || birdY + BIRD_HEIGHT > pipe.y + PIPE_GAP) &&
+                           (pipe.x + PIPE_WIDTH > BIRD_X);
+>>>>>>> 84c37ca2bd18ea985d958119888fea2ed63c46c9
             bool hitGroundOrCeiling = (birdY + BIRD_HEIGHT >= SCREEN_HEIGHT || birdY <= 0);
             if (hitPipe || hitGroundOrCeiling)
             {
