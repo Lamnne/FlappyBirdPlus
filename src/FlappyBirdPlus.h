@@ -17,10 +17,6 @@ const int PIPE_WIDTH = 100;
 const int PIPE_GAP = 220;
 const int INITIAL_PIPE_VELOCITY = 4;
 const int JUMP_STRENGTH = 14;
-extern bool pipesMoving;
-extern int movingGroupStart;
-extern int movingGroupEnd;
-extern int moveWaveTimer;
 
 struct Pipe
 {
@@ -40,6 +36,21 @@ struct Shield
 {
     int x, y;
     bool collected = false;
+};
+
+struct Bullet {
+    float x, y;
+    bool active;
+};
+
+struct Airplane {
+    float x, y;
+    float speed;
+    bool active;
+    bool movingUp;
+    int moveTimer;
+    int timer;
+    vector<Bullet> bullets;
 };
 
 class FlappyBirdGame
@@ -87,6 +98,7 @@ public:
     void generateShield();
     void checkShieldCollision();
     bool isPositionValid(int x, int y, int width, int height);
+    void spawnAirplane();
 private:
     SDL_Window* window;
 
@@ -147,6 +159,12 @@ private:
     SDL_Texture* oopTexture;
     SDL_Rect oopRect;
 
+    SDL_Texture* airplaneTexture;
+    SDL_Rect airplaneRect;
+
+    SDL_Texture* bulletTexture;
+    SDL_Rect bulletRect;
+
     int birdY, birdVelocity, score;
     bool birdJumping;
     int pipeVelocity;
@@ -163,6 +181,9 @@ private:
     int shieldCount;
     int shieldTimer;
     int pipesPassed = 0;
+    Airplane airplane;
+    bool airplaneActive = false;
+    int airplaneTimer = 0;
     TTF_Font* font;
     vector<Coin> coins;
     vector<SDL_Texture*> backgroundTextures;

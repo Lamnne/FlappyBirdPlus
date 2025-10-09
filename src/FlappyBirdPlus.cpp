@@ -58,6 +58,10 @@ FlappyBirdGame::FlappyBirdGame() : shouldQuit(false), birdY(SCREEN_HEIGHT / 2), 
     shieldTexture = IMG_LoadTexture(renderer, "image/shield.png");
     shieldSound = Mix_LoadWAV("audio/shield_sound.mp3");
 
+    airplaneTexture = IMG_LoadTexture(renderer, "image/airplane.png");
+
+    bulletTexture = IMG_LoadTexture(renderer, "image/bullet.png");
+
     jumpSound = Mix_LoadWAV("audio/jump_sound.mp3");
 
     crashSound = Mix_LoadWAV("audio/crash_sound.mp3");
@@ -82,6 +86,12 @@ FlappyBirdGame::FlappyBirdGame() : shouldQuit(false), birdY(SCREEN_HEIGHT / 2), 
     generatePipe();
     loadskin();
     loadHighScore();
+    airplane.active = false;
+    airplane.x = SCREEN_WIDTH - 200;
+    airplane.y = SCREEN_HEIGHT / 2;
+    airplane.movingUp = true;
+    airplane.timer = 0;
+    airplane.moveTimer = 0;
 }
 
 FlappyBirdGame::~FlappyBirdGame()

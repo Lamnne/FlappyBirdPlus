@@ -16,6 +16,23 @@ void FlappyBirdGame::render()
     SDL_RenderCopy(renderer, currentBackground, nullptr, &backgroundRect);
 
     SDL_Rect birdRect = { 100, birdY, BIRD_WIDTH, BIRD_HEIGHT };
+    if (airplaneActive && airplane.active)
+{
+    if (airplaneTexture)
+    {
+        SDL_Rect airplaneRect = { airplane.x - 60, airplane.y, 200, 150 };
+        SDL_RenderCopy(renderer, airplaneTexture, nullptr, &airplaneRect);
+    }
+    for (auto& b : airplane.bullets)
+    {
+        if (b.active && bulletTexture)
+        {
+            SDL_Rect bulletRect = { b.x, b.y + 30, 10, 4 };
+            SDL_RenderCopy(renderer, bulletTexture, nullptr, &bulletRect);
+        }
+    }
+}
+
     if (hasShield)
     {
         SDL_SetTextureAlphaMod(birdTexture, 100);
