@@ -17,11 +17,17 @@ const int PIPE_WIDTH = 100;
 const int PIPE_GAP = 220;
 const int INITIAL_PIPE_VELOCITY = 4;
 const int JUMP_STRENGTH = 14;
+extern bool pipesMoving;
+extern int movingGroupStart;
+extern int movingGroupEnd;
+extern int moveWaveTimer;
 
 struct Pipe
 {
     int x, y;
     bool hasPassed;
+    bool movingUp;
+    bool isMoving = false;
 };
 
 struct Coin

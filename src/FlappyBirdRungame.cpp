@@ -2,6 +2,10 @@
 #include <algorithm>
 #include <iostream>
 #define BIRD_X 100
+bool pipesMoving = false;
+int movingGroupStart = 0;
+int movingGroupEnd = 0;
+int moveWaveTimer = 0;
 
 void FlappyBirdGame::run()
 {
@@ -82,6 +86,22 @@ void FlappyBirdGame::updateGame()
     for (auto& pipe : pipes)
     {
         pipe.x -= pipeVelocity;
+        if (pipe.isMoving)
+        {
+            int moveSpeedY = 1;
+            if (pipe.movingUp)
+            {
+                pipe.y -= moveSpeedY;
+                if (pipe.y < 50)
+                    pipe.movingUp = false;
+            }
+            else
+            {
+                pipe.y += moveSpeedY;
+                if (pipe.y > SCREEN_HEIGHT - PIPE_GAP - 150)
+                    pipe.movingUp = true;
+            }
+        }
         if (hasShield)
         {
             if (pipe.x + PIPE_WIDTH <= BIRD_WIDTH && !pipe.hasPassed)
@@ -93,11 +113,7 @@ void FlappyBirdGame::updateGame()
                 {
                     pipeVelocity++;
                 }
-<<<<<<< HEAD
                 if (score % 5 == 0)
-=======
-                if (score % 20 == 0)
->>>>>>> 84c37ca2bd18ea985d958119888fea2ed63c46c9
                 {
                     currentBackgroundIndex = (currentBackgroundIndex + 1) % 5;
                     currentBackground = backgroundTextures[currentBackgroundIndex];
@@ -121,24 +137,15 @@ void FlappyBirdGame::updateGame()
                 {
                     pipeVelocity++;
                 }
-<<<<<<< HEAD
                 if (score % 5 == 0)
-=======
-                if (score % 20 == 0)
->>>>>>> 84c37ca2bd18ea985d958119888fea2ed63c46c9
                 {
                     currentBackgroundIndex = (currentBackgroundIndex + 1) % 5;
                     currentBackground = backgroundTextures[currentBackgroundIndex];
                 }
             }
             bool hitPipe = (pipe.x < BIRD_X + BIRD_WIDTH && pipe.x + PIPE_WIDTH > BIRD_X) &&
-<<<<<<< HEAD
-                                         (birdY < pipe.y || birdY + BIRD_HEIGHT > pipe.y + PIPE_GAP) &&
-                                         (pipe.x + PIPE_WIDTH > BIRD_X);
-=======
                            (birdY < pipe.y || birdY + BIRD_HEIGHT > pipe.y + PIPE_GAP) &&
                            (pipe.x + PIPE_WIDTH > BIRD_X);
->>>>>>> 84c37ca2bd18ea985d958119888fea2ed63c46c9
             bool hitGroundOrCeiling = (birdY + BIRD_HEIGHT >= SCREEN_HEIGHT || birdY <= 0);
             if (hitPipe || hitGroundOrCeiling)
             {
@@ -153,6 +160,15 @@ void FlappyBirdGame::updateGame()
             }
         }
     }
+    if (pipesMoving)
+    {
+        moveWaveTimer--;
+        if (moveWaveTimer <= 0)
+        {
+            pipesMoving = false;
+        }
+    }
+
 }
 
 void FlappyBirdGame::resetGame()

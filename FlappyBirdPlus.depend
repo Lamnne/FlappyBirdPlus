@@ -120,7 +120,8 @@
 1743319968 source:c:\users\lenovo\onedrive - vnu.edu.vn\desktop\flappybirdplus\src\flappybirdmenu.cpp
 	"FlappyBirdPlus.h"
 
-<<<<<<< HEAD
+1743319968 D
+
 1758191502 source:d:\flappybirdplus\main.cpp
 	"FlappyBirdPlus.h"
 
@@ -136,7 +137,7 @@
 	"FlappyBirdPlus.h"
 	<fstream>
 
-1758191503 d:\flappybirdplus\src\flappybirdplus.h
+1759951065 d:\flappybirdplus\src\flappybirdplus.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
@@ -151,8 +152,9 @@
 1758191503 source:d:\flappybirdplus\src\flappybirdmenu.cpp
 	"FlappyBirdPlus.h"
 
-1758191503 source:d:\flappybirdplus\src\flappybirdpipe.cpp
+1759949785 source:d:\flappybirdplus\src\flappybirdpipe.cpp
 	"FlappyBirdPlus.h"
+	<algorithm>
 
 1758191503 source:d:\flappybirdplus\src\flappybirdplus.cpp
 	"FlappyBirdPlus.h"
@@ -161,7 +163,7 @@
 1758191503 source:d:\flappybirdplus\src\flappybirdrendering.cpp
 	"FlappyBirdPlus.h"
 
-1759400240 source:d:\flappybirdplus\src\flappybirdrungame.cpp
+1759951065 source:d:\flappybirdplus\src\flappybirdrungame.cpp
 	"FlappyBirdPlus.h"
 	<algorithm>
 	<iostream>
@@ -169,7 +171,7 @@
 1758191503 source:d:\flappybirdplus\src\flappybirdsetting.cpp
 	"FlappyBirdPlus.h"
 
-1758191503 source:d:\flappybirdplus\src\flappybirdshield.cpp
+1759947011 source:d:\flappybirdplus\src\flappybirdshield.cpp
 	"FlappyBirdPlus.h"
 	<iostream>
 
@@ -180,8 +182,10 @@
 	"FlappyBirdPlus.h"
 	<fstream>
 
-1758191503 source:d:\flappybirdplus\src\startend.cpp
+1759403136 source:d:\flappybirdplus\src\startend.cpp
 	"FlappyBirdPlus.h"
 
-=======
->>>>>>> 84c37ca2bd18ea985d958119888fea2ed63c46c9
+1758191503 dPlus.h"
+
+1758191503 37ca2bd18ea985d958119888fea2ed63c46c9
+
