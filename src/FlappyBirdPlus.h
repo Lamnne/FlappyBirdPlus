@@ -98,7 +98,6 @@ public:
     void generateShield();
     void checkShieldCollision();
     bool isPositionValid(int x, int y, int width, int height);
-    void spawnAirplane();
 private:
     SDL_Window* window;
 
@@ -184,11 +183,15 @@ private:
     Airplane airplane;
     bool airplaneActive = false;
     int airplaneTimer = 0;
+    int pipesSinceLastAirplane = 0;
+
     TTF_Font* font;
     vector<Coin> coins;
     vector<SDL_Texture*> backgroundTextures;
     SDL_Texture* currentBackground;
     size_t currentBackgroundIndex;
+    int backgroundX = 0;
+    int backgroundSpeed = 2;
 
     vector<Pipe> pipes;
     SDL_Texture* pipeTopTexture;

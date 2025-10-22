@@ -72,30 +72,30 @@ void FlappyBirdGame::updateGame()
     }), shields.end());
 
 
-    if (score > 0 && score % 10 == 0 && !airplaneActive)
+    if (!airplaneActive && pipesSinceLastAirplane > 5)
     {
-        pipes.clear();
-        coins.clear();
-        shields.clear();
-        airplaneActive = true;
-        airplane.active = true;
-        airplane.y = 50 + rand() % (SCREEN_HEIGHT - 150);
-        airplane.speed = 4 + rand() % 5;
-        airplane.movingUp = rand() % 2 == 0;
-        airplane.moveTimer = 0;
-        airplane.timer = 600;
-        airplane.bullets.clear();
-
-        airplaneActive = true;
-        airplaneTimer = 600;
+        int chance = rand() % 1000;
+        if (chance <= 200)
+        {
+            airplaneActive = true;
+            airplane.active = true;
+            airplane.y = 50 + rand() % (SCREEN_HEIGHT - 150);
+            airplane.movingUp = true;
+            airplane.speed = 4 + rand() % 5;
+            airplane.moveTimer = 0;
+            airplane.bullets.clear();
+            airplaneTimer = 600;
+            pipes.clear();
+            pipesSinceLastAirplane = 0;
+        }
     }
+
 
     if (airplaneActive && airplane.active)
     {
         if (airplane.movingUp)
             airplane.y -= 2;
-        else
-            airplane.y += 2;
+        else airplane.y += 2;
         if (airplane.y < 50) airplane.movingUp = false;
         if (airplane.y > SCREEN_HEIGHT - 100) airplane.movingUp = true;
         airplane.moveTimer++;
@@ -108,14 +108,13 @@ void FlappyBirdGame::updateGame()
         {
             b.x -= 8;
             if (b.x < 0) b.active = false;
-            bool hitBird =
-                b.active &&
-                b.x < 100 + BIRD_WIDTH &&
-                b.x + 10 > 100 &&
-                b.y < birdY + BIRD_HEIGHT &&
-                b.y + 4 > birdY;
+            bool hitBird = (b.active &&
+                            b.x < 100 + BIRD_WIDTH &&
+                            b.x + 10 > 100 &&
+                            b.y < birdY + BIRD_HEIGHT &&
+                            b.y + 4 > birdY);
             bool hitGroundOrCeiling = (birdY + BIRD_HEIGHT >= SCREEN_HEIGHT || birdY <= 0);
-            if (hitBird || hitGroundOrCeiling)
+            if ((hitBird || hitGroundOrCeiling)&&!hasShield)
             {
                 if (soundEnabled) Mix_PlayChannel(-1, crashSound, 0);
                 SDL_Delay(200);
@@ -124,12 +123,7 @@ void FlappyBirdGame::updateGame()
                 return;
             }
         }
-        airplane.bullets.erase(remove_if(
-                                   airplane.bullets.begin(), airplane.bullets.end(),
-                                   [](const Bullet& b)
-        {
-            return !b.active;
-        }), airplane.bullets.end());
+        airplane.bullets.erase(remove_if(airplane.bullets.begin(), airplane.bullets.end(),[](const Bullet& b){ return !b.active;}), airplane.bullets.end());
         airplaneTimer--;
         if (airplaneTimer <= 0)
         {
@@ -180,6 +174,7 @@ void FlappyBirdGame::updateGame()
                 if (pipe.x + PIPE_WIDTH <= BIRD_WIDTH && !pipe.hasPassed)
                 {
                     pipe.hasPassed = true;
+                    pipesSinceLastAirplane++;
                     score++;
                     shieldCount++;
                     if (score % 10 == 0)
@@ -262,13 +257,18 @@ void FlappyBirdGame::resetGame()
     pipeVelocity = INITIAL_PIPE_VELOCITY;
     currentBackground = backgroundTextures[0];
     currentBackgroundIndex = 0;
+    airplaneActive = false;
     airplane.active = false;
+    airplane.bullets.clear();
     airplane.x = SCREEN_WIDTH - 150;
     airplane.y = SCREEN_HEIGHT / 2;
     airplane.movingUp = true;
     airplane.timer = 0;
+    airplane.speed = 0;
     airplane.moveTimer = 0;
-
+    backgroundX = 0;
+    backgroundSpeed = 2;
+    airplaneTimer = 0;
 }
 
 void FlappyBirdGame::startGame()

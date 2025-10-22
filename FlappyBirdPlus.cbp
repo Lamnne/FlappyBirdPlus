@@ -31,7 +31,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="FlappyBirdAirplane.CPP" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/FlappyBirdCoin.cpp" />
 		<Unit filename="src/FlappyBirdHighScore.cpp" />

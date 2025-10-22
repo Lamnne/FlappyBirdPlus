@@ -13,25 +13,38 @@ void FlappyBirdGame::renderText(const string& text, int x, int y, SDL_Color colo
 void FlappyBirdGame::render()
 {
     SDL_Rect backgroundRect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
-    SDL_RenderCopy(renderer, currentBackground, nullptr, &backgroundRect);
+    backgroundX -= backgroundSpeed;
+    if (backgroundX <= -SCREEN_WIDTH)
+    {
+        backgroundX = 0;
+    }
+
+    if (currentBackground)
+    {
+        SDL_Rect bgRect1 = { backgroundX, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+        SDL_Rect bgRect2 = { backgroundX + SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
+
+        SDL_RenderCopy(renderer, currentBackground, nullptr, &bgRect1);
+        SDL_RenderCopy(renderer, currentBackground, nullptr, &bgRect2);
+    }
 
     SDL_Rect birdRect = { 100, birdY, BIRD_WIDTH, BIRD_HEIGHT };
     if (airplaneActive && airplane.active)
-{
-    if (airplaneTexture)
     {
-        SDL_Rect airplaneRect = { airplane.x - 60, airplane.y, 200, 150 };
-        SDL_RenderCopy(renderer, airplaneTexture, nullptr, &airplaneRect);
-    }
-    for (auto& b : airplane.bullets)
-    {
-        if (b.active && bulletTexture)
+        if (airplaneTexture)
         {
-            SDL_Rect bulletRect = { b.x, b.y + 30, 10, 4 };
-            SDL_RenderCopy(renderer, bulletTexture, nullptr, &bulletRect);
+            SDL_Rect airplaneRect = { airplane.x - 60, airplane.y, 200, 150 };
+            SDL_RenderCopy(renderer, airplaneTexture, nullptr, &airplaneRect);
+        }
+        for (auto& b : airplane.bullets)
+        {
+            if (b.active && bulletTexture)
+            {
+                SDL_Rect bulletRect = { b.x, b.y + 30, 10, 4 };
+                SDL_RenderCopy(renderer, bulletTexture, nullptr, &bulletRect);
+            }
         }
     }
-}
 
     if (hasShield)
     {

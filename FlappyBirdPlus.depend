@@ -137,7 +137,7 @@
 	"FlappyBirdPlus.h"
 	<fstream>
 
-1760002182 d:\flappybirdplus\src\flappybirdplus.h
+1760605001 d:\flappybirdplus\src\flappybirdplus.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
@@ -149,24 +149,25 @@
 	"FlappyBirdPlus.h"
 	<fstream>
 
-1758191503 source:d:\flappybirdplus\src\flappybirdmenu.cpp
+1760602080 source:d:\flappybirdplus\src\flappybirdmenu.cpp
 	"FlappyBirdPlus.h"
 
-1759951116 source:d:\flappybirdplus\src\flappybirdpipe.cpp
+1760597578 source:d:\flappybirdplus\src\flappybirdpipe.cpp
 	"FlappyBirdPlus.h"
 	<algorithm>
 
-1760002976 source:d:\flappybirdplus\src\flappybirdplus.cpp
+1760602080 source:d:\flappybirdplus\src\flappybirdplus.cpp
 	"FlappyBirdPlus.h"
 	<ctime>
 
-1760003631 source:d:\flappybirdplus\src\flappybirdrendering.cpp
+1760603603 source:d:\flappybirdplus\src\flappybirdrendering.cpp
 	"FlappyBirdPlus.h"
 
-1760003993 source:d:\flappybirdplus\src\flappybirdrungame.cpp
+1761100674 source:d:\flappybirdplus\src\flappybirdrungame.cpp
 	"FlappyBirdPlus.h"
 	<algorithm>
 	<iostream>
+	<cstdlib>
 
 1758191503 source:d:\flappybirdplus\src\flappybirdsetting.cpp
 	"FlappyBirdPlus.h"

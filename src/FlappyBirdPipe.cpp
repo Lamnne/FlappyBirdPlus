@@ -12,12 +12,12 @@ void FlappyBirdGame::generatePipe()
     {
         int coinY = pipeHeight + PIPE_GAP / 2 - 55;
         if (!isMoving && rand() % 100 < 30)
-    {
-        int coinY = pipeHeight + PIPE_GAP / 2 - 55;
-        if (coinY < 50) coinY = 50;
-else if (coinY > SCREEN_HEIGHT - 50) coinY = SCREEN_HEIGHT - 50;
+        {
+            int coinY = pipeHeight + PIPE_GAP / 2 - 55;
+            if (coinY < 50) coinY = 50;
+            else if (coinY > SCREEN_HEIGHT - 50) coinY = SCREEN_HEIGHT - 50;
 
-        generateCoin(SCREEN_WIDTH + PIPE_WIDTH / 2 - 100, coinY);
-    }
+            generateCoin(SCREEN_WIDTH + PIPE_WIDTH / 2 - 100, coinY);
+        }
     }
 }

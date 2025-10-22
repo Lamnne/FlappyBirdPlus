@@ -76,6 +76,8 @@ FlappyBirdGame::FlappyBirdGame() : shouldQuit(false), birdY(SCREEN_HEIGHT / 2), 
 
     startMusic = Mix_LoadMUS("audio/start_music.mp3");
 
+    backgroundX = 0;
+    backgroundSpeed = 2;
     playMenuMusic();
     loadTotalCoins();
     hasShield = false;
