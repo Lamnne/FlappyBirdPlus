@@ -21,7 +21,8 @@ void FlappyBirdGame::run()
                 shouldQuit = true;
                 break;
             }
-            else if ((e.type == SDL_KEYDOWN && (e.key.keysym.sym == SDLK_SPACE || e.key.keysym.sym == SDLK_UP)) ||
+            else if ((e.type == SDL_KEYDOWN &&
+                     (e.key.keysym.sym == SDLK_SPACE || e.key.keysym.sym == SDLK_UP)) ||
                      (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT))
             {
                 GRAVITY = 1;
@@ -74,8 +75,8 @@ void FlappyBirdGame::updateGame()
 
     if (!airplaneActive && pipesSinceLastAirplane > 5)
     {
-        int chance = rand() % 1000;
-        if (chance <= 200)
+        int chance = rand() % 100;
+        if (chance <= 50)
         {
             airplaneActive = true;
             airplane.active = true;
@@ -93,8 +94,7 @@ void FlappyBirdGame::updateGame()
 
     if (airplaneActive && airplane.active)
     {
-        if (airplane.movingUp)
-            airplane.y -= 2;
+        if (airplane.movingUp)airplane.y -= 2;
         else airplane.y += 2;
         if (airplane.y < 50) airplane.movingUp = false;
         if (airplane.y > SCREEN_HEIGHT - 100) airplane.movingUp = true;
@@ -185,6 +185,10 @@ void FlappyBirdGame::updateGame()
                     {
                         currentBackgroundIndex = (currentBackgroundIndex + 1) % 5;
                         currentBackground = backgroundTextures[currentBackgroundIndex];
+                        pipeTopTextureIndex = (pipeTopTextureIndex + 1) % 5;
+                        pipeBottomTextureIndex = (pipeBottomTextureIndex + 1) % 5;
+                        pipeTopTexture = pipeTops[pipeTopTextureIndex];
+                        pipeBottomTexture = pipeBottoms[pipeBottomTextureIndex];
                     }
                     if (shieldCount >= 3)
                     {
@@ -209,6 +213,10 @@ void FlappyBirdGame::updateGame()
                     {
                         currentBackgroundIndex = (currentBackgroundIndex + 1) % 5;
                         currentBackground = backgroundTextures[currentBackgroundIndex];
+                        pipeTopTextureIndex = (pipeTopTextureIndex + 1) % 5;
+                        pipeBottomTextureIndex = (pipeBottomTextureIndex + 1) % 5;
+                        pipeTopTexture = pipeTops[pipeTopTextureIndex];
+                        pipeBottomTexture = pipeBottoms[pipeBottomTextureIndex];
                     }
                 }
                 bool hitPipe = (pipe.x < BIRD_X + BIRD_WIDTH && pipe.x + PIPE_WIDTH > BIRD_X) &&
@@ -253,6 +261,10 @@ void FlappyBirdGame::resetGame()
     hasShield = false;
     shieldCount = 0;
     shieldTimer = 0;
+    pipeTopTexture = pipeTops[0];
+    pipeTopTextureIndex = 0;
+    pipeBottomTexture = pipeBottoms[0];
+    pipeBottomTextureIndex = 0;
     generatePipe();
     pipeVelocity = INITIAL_PIPE_VELOCITY;
     currentBackground = backgroundTextures[0];

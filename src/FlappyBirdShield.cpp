@@ -16,7 +16,8 @@ bool FlappyBirdGame::isPositionValid(int x, int y, int width, int height)
     {
         SDL_Rect topPipeRect = { pipe.x, 0, PIPE_WIDTH, pipe.y };
         SDL_Rect bottomPipeRect = { pipe.x, pipe.y + PIPE_GAP, PIPE_WIDTH, SCREEN_HEIGHT - pipe.y - PIPE_GAP };
-        if (SDL_HasIntersection(&shieldRect, &topPipeRect) || SDL_HasIntersection(&shieldRect, &bottomPipeRect))
+        if (SDL_HasIntersection(&shieldRect, &topPipeRect)
+            || SDL_HasIntersection(&shieldRect, &bottomPipeRect))
             return false;
     }
     return true;
@@ -59,8 +60,10 @@ void FlappyBirdGame::checkShieldCollision()
     for (auto& shield : shields)
     {
         if (!shield.collected &&
-                birdRect.x + BIRD_WIDTH >= shield.x && birdRect.x <= shield.x + 50 &&
-                birdRect.y + BIRD_HEIGHT >= shield.y && birdRect.y <= shield.y + 50)
+            birdRect.x + BIRD_WIDTH >= shield.x &&
+            birdRect.x <= shield.x + 50 &&
+            birdRect.y + BIRD_HEIGHT >= shield.y &&
+            birdRect.y <= shield.y + 50)
         {
             shield.collected = true;
             hasShield = true;

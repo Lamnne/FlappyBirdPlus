@@ -14,21 +14,16 @@ void FlappyBirdGame::render()
 {
     SDL_Rect backgroundRect = { 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
     backgroundX -= backgroundSpeed;
-    if (backgroundX <= -SCREEN_WIDTH)
-    {
-        backgroundX = 0;
-    }
+    if (backgroundX <= -SCREEN_WIDTH) backgroundX = 0;
 
     if (currentBackground)
     {
         SDL_Rect bgRect1 = { backgroundX, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
         SDL_Rect bgRect2 = { backgroundX + SCREEN_WIDTH, 0, SCREEN_WIDTH, SCREEN_HEIGHT };
-
         SDL_RenderCopy(renderer, currentBackground, nullptr, &bgRect1);
         SDL_RenderCopy(renderer, currentBackground, nullptr, &bgRect2);
     }
 
-    SDL_Rect birdRect = { 100, birdY, BIRD_WIDTH, BIRD_HEIGHT };
     if (airplaneActive && airplane.active)
     {
         if (airplaneTexture)
@@ -40,21 +35,11 @@ void FlappyBirdGame::render()
         {
             if (b.active && bulletTexture)
             {
-                SDL_Rect bulletRect = { b.x, b.y + 30, 10, 4 };
+                SDL_Rect bulletRect = { b.x, b.y + 30, 50, 10 };
                 SDL_RenderCopy(renderer, bulletTexture, nullptr, &bulletRect);
             }
         }
     }
-
-    if (hasShield)
-    {
-        SDL_SetTextureAlphaMod(birdTexture, 100);
-    }
-    else
-    {
-        SDL_SetTextureAlphaMod(birdTexture, 255);
-    }
-    SDL_RenderCopy(renderer, birdTexture, nullptr, &birdRect);
 
     for (auto& pipe : pipes)
     {
@@ -74,6 +59,15 @@ void FlappyBirdGame::render()
         }
     }
 
+    if (hasShield)
+    {
+        SDL_SetTextureAlphaMod(birdTexture, 100);
+    }
+    else
+    {
+        SDL_SetTextureAlphaMod(birdTexture, 255);
+    }
+
     for (auto& shield : shields)
     {
         if (!shield.collected)
@@ -82,6 +76,10 @@ void FlappyBirdGame::render()
             SDL_RenderCopy(renderer, shieldTexture, nullptr, &shieldRect);
         }
     }
+
+    SDL_Rect birdRect = { 100, birdY, BIRD_WIDTH, BIRD_HEIGHT };
+    SDL_SetTextureAlphaMod(birdTexture, hasShield ? 160 : 255);
+    SDL_RenderCopy(renderer, birdTexture, nullptr, &birdRect);
 
     displayCoinCount();
     displayScore();

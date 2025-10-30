@@ -19,11 +19,16 @@ void FlappyBirdGame::showMenu()
                 shouldQuit = true;
                 break;
             }
-            if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT&&e.type != SDL_QUIT)
+            if (e.type == SDL_MOUSEBUTTONDOWN &&
+                e.button.button == SDL_BUTTON_LEFT &&
+                e.type != SDL_QUIT)
             {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-                if (mouseX >= playButtonRect.x && mouseX <= 740 &&mouseY >= playButtonRect.y && mouseY <= playButtonRect.y + playButtonRect.h)
+                if (mouseX >= playButtonRect.x &&
+                    mouseX <= 740 &&
+                    mouseY >= playButtonRect.y &&
+                    mouseY <= playButtonRect.y + playButtonRect.h)
                 {
                     resetRenderer();
                     SDL_Delay(200);
@@ -31,19 +36,28 @@ void FlappyBirdGame::showMenu()
                     startGame();
                     return;
                 }
-                if (mouseX >= exitButtonRect.x && mouseX <= 780 &&mouseY >= exitButtonRect.y && mouseY <= exitButtonRect.y + exitButtonRect.h)
+                if (mouseX >= exitButtonRect.x &&
+                    mouseX <= 780 &&
+                    mouseY >= exitButtonRect.y &&
+                    mouseY <= exitButtonRect.y + exitButtonRect.h)
                 {
                     shouldQuit = true;
                     break;
                 }
-                if (mouseX >= settingButtonRect.x && mouseX <= settingButtonRect.x + settingButtonRect.w &&mouseY >= settingButtonRect.y && mouseY <= settingButtonRect.y + settingButtonRect.h)
+                if (mouseX >= settingButtonRect.x &&
+                    mouseX <= settingButtonRect.x + settingButtonRect.w &&
+                    mouseY >= settingButtonRect.y &&
+                    mouseY <= settingButtonRect.y + settingButtonRect.h)
                 {
                     SDL_Delay(200);
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     showSettings();
                     return;
                 }
-                if (mouseX >= wardrobeButtonRect.x && mouseX <= 850 &&mouseY >= wardrobeButtonRect.y && mouseY <= wardrobeButtonRect.y + wardrobeButtonRect.h)
+                if (mouseX >= wardrobeButtonRect.x &&
+                    mouseX <= 850 &&
+                    mouseY >= wardrobeButtonRect.y &&
+                    mouseY <= wardrobeButtonRect.y + wardrobeButtonRect.h)
                 {
                     SDL_Delay(200);
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
@@ -101,18 +115,25 @@ void FlappyBirdGame::showGameOverMenu()
                 shouldQuit = true;
                 break;
             }
-            if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT)
+            if (e.type == SDL_MOUSEBUTTONDOWN &&
+                e.button.button == SDL_BUTTON_LEFT)
             {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-                if (mouseX >= backtomenuButtonRect.x && mouseX <= 800 &&mouseY >= backtomenuButtonRect.y && mouseY <= backtomenuButtonRect.y + backtomenuButtonRect.h)
+                if (mouseX >= backtomenuButtonRect.x &&
+                    mouseX <= 800 &&
+                    mouseY >= backtomenuButtonRect.y &&
+                    mouseY <= backtomenuButtonRect.y + backtomenuButtonRect.h)
                 {
                     SDL_Delay(200);
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     showMenu();
                     return;
                 }
-                if (mouseX >= playAgainButtonRect.x && mouseX <= 744 &&mouseY >= playAgainButtonRect.y && mouseY <= playAgainButtonRect.y + playAgainButtonRect.h)
+                if (mouseX >= playAgainButtonRect.x &&
+                    mouseX <= 744 &&
+                    mouseY >= playAgainButtonRect.y &&
+                    mouseY <= playAgainButtonRect.y + playAgainButtonRect.h)
                 {
                     resetRenderer();
                     SDL_Delay(200);
@@ -120,7 +141,10 @@ void FlappyBirdGame::showGameOverMenu()
                     startGame();
                     return;
                 }
-                if (mouseX >= exitButtonRect.x && mouseX <= 688 &&mouseY >= exitButtonRect.y && mouseY <= exitButtonRect.y + exitButtonRect.h)
+                if (mouseX >= exitButtonRect.x &&
+                    mouseX <= 688 &&
+                    mouseY >= exitButtonRect.y &&
+                    mouseY <= exitButtonRect.y + exitButtonRect.h)
                 {
                     shouldQuit = true;
                     break;

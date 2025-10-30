@@ -133,11 +133,11 @@
 	<vector>
 	<string>
 
-1758191503 source:d:\flappybirdplus\src\flappybirdcoin.cpp
+1761817146 source:d:\flappybirdplus\src\flappybirdcoin.cpp
 	"FlappyBirdPlus.h"
 	<fstream>
 
-1760605001 d:\flappybirdplus\src\flappybirdplus.h
+1761817146 d:\flappybirdplus\src\flappybirdplus.h
 	<SDL.h>
 	<SDL_ttf.h>
 	<SDL_image.h>
@@ -149,41 +149,42 @@
 	"FlappyBirdPlus.h"
 	<fstream>
 
-1760602080 source:d:\flappybirdplus\src\flappybirdmenu.cpp
+1761817146 source:d:\flappybirdplus\src\flappybirdmenu.cpp
 	"FlappyBirdPlus.h"
 
 1760597578 source:d:\flappybirdplus\src\flappybirdpipe.cpp
 	"FlappyBirdPlus.h"
 	<algorithm>
 
-1760602080 source:d:\flappybirdplus\src\flappybirdplus.cpp
+1761817146 source:d:\flappybirdplus\src\flappybirdplus.cpp
 	"FlappyBirdPlus.h"
 	<ctime>
+	<iostream>
 
-1760603603 source:d:\flappybirdplus\src\flappybirdrendering.cpp
+1761816366 source:d:\flappybirdplus\src\flappybirdrendering.cpp
 	"FlappyBirdPlus.h"
 
-1761100674 source:d:\flappybirdplus\src\flappybirdrungame.cpp
+1761815820 source:d:\flappybirdplus\src\flappybirdrungame.cpp
 	"FlappyBirdPlus.h"
 	<algorithm>
 	<iostream>
 	<cstdlib>
 
-1758191503 source:d:\flappybirdplus\src\flappybirdsetting.cpp
+1761817146 source:d:\flappybirdplus\src\flappybirdsetting.cpp
 	"FlappyBirdPlus.h"
 
-1759947011 source:d:\flappybirdplus\src\flappybirdshield.cpp
+1761817146 source:d:\flappybirdplus\src\flappybirdshield.cpp
 	"FlappyBirdPlus.h"
 	<iostream>
 
 1758191503 source:d:\flappybirdplus\src\flappybirdsounds.cpp
 	"FlappyBirdPlus.h"
 
-1758191503 source:d:\flappybirdplus\src\flappybirdwardrobe.cpp
+1761817146 source:d:\flappybirdplus\src\flappybirdwardrobe.cpp
 	"FlappyBirdPlus.h"
 	<fstream>
 
-1759403136 source:d:\flappybirdplus\src\startend.cpp
+1761817146 source:d:\flappybirdplus\src\startend.cpp
 	"FlappyBirdPlus.h"
 
 1758191503 dPlus.h"

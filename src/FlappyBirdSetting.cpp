@@ -32,26 +32,31 @@ void FlappyBirdGame::showSettings()
                 shouldQuit = true;
                 break;
             }
-            if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT)
+            if (e.type == SDL_MOUSEBUTTONDOWN &&
+                e.button.button == SDL_BUTTON_LEFT)
             {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-                if (mouseX >= 600 && mouseX <= 950 && mouseY >= 180 && mouseY <= 230)
+                if (mouseX >= 600 && mouseX <= 950 &&
+                    mouseY >= 180 && mouseY <= 230)
                 {
                     isDragging = true;
                 }
-                if (mouseX >= 600 && mouseX <= 670 && mouseY >= 300 && mouseY <= 370)
+                if (mouseX >= 600 && mouseX <= 670 &&
+                    mouseY >= 300 && mouseY <= 370)
                 {
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     soundEnabled = true;
                 }
-                if (mouseX >= 750 && mouseX <= 830 && mouseY >= 300 && mouseY <= 370)
+                if (mouseX >= 750 && mouseX <= 830 &&
+                    mouseY >= 300 && mouseY <= 370)
                 {
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     soundEnabled = false;
                 }
             }
-            if (e.type == SDL_MOUSEBUTTONUP && e.button.button == SDL_BUTTON_LEFT)
+            if (e.type == SDL_MOUSEBUTTONUP &&
+                e.button.button == SDL_BUTTON_LEFT)
             {
                 isDragging = false;
             }
@@ -66,11 +71,13 @@ void FlappyBirdGame::showSettings()
                     Mix_VolumeMusic(globalVolume);
                 }
             }
-            if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT)
+            if (e.type == SDL_MOUSEBUTTONDOWN &&
+                e.button.button == SDL_BUTTON_LEFT)
             {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-                if (mouseX >= 0 && mouseX <= 130 && mouseY >= 0 && mouseY <= 70)
+                if (mouseX >= 0 && mouseX <= 130 &&
+                    mouseY >= 0 && mouseY <= 70)
                 {
                     SDL_Delay(200);
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);

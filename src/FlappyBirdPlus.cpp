@@ -1,7 +1,15 @@
 #include "FlappyBirdPlus.h"
 #include <ctime>
+#include <iostream>
 
-FlappyBirdGame::FlappyBirdGame() : shouldQuit(false), birdY(SCREEN_HEIGHT / 2), birdVelocity(0), score(0), birdJumping(false), pipeVelocity(INITIAL_PIPE_VELOCITY), currentBackgroundIndex(0)
+FlappyBirdGame::FlappyBirdGame() :
+    shouldQuit(false),
+    birdY(SCREEN_HEIGHT / 2),
+    birdVelocity(0),
+    score(0),
+    birdJumping(false),
+    pipeVelocity(INITIAL_PIPE_VELOCITY),
+    currentBackgroundIndex(0)
 {
     SDL_Init(SDL_INIT_VIDEO | SDL_INIT_TIMER);
     TTF_Init();
@@ -9,7 +17,12 @@ FlappyBirdGame::FlappyBirdGame() : shouldQuit(false), birdY(SCREEN_HEIGHT / 2), 
     Mix_Init(MIX_INIT_MP3 | MIX_INIT_OGG);
     Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096);
 
-    window = SDL_CreateWindow("Flappy Bird", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow("Flappy Bird",
+                              SDL_WINDOWPOS_UNDEFINED,
+                              SDL_WINDOWPOS_UNDEFINED,
+                              SCREEN_WIDTH,
+                              SCREEN_HEIGHT,
+                              SDL_WINDOW_SHOWN);
     renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
 
     menuBackgroundTexture = IMG_LoadTexture(renderer, "image/menu_background.jpg");
@@ -40,15 +53,35 @@ FlappyBirdGame::FlappyBirdGame() : shouldQuit(false), birdY(SCREEN_HEIGHT / 2), 
 
     srand(time(0));
 
-    backgroundTextures.push_back(IMG_LoadTexture(renderer, "image/background1.jpg"));
-    backgroundTextures.push_back(IMG_LoadTexture(renderer, "image/background2.jpg"));
-    backgroundTextures.push_back(IMG_LoadTexture(renderer, "image/background3.jpg"));
-    backgroundTextures.push_back(IMG_LoadTexture(renderer, "image/background4.jpg"));
-    backgroundTextures.push_back(IMG_LoadTexture(renderer, "image/background5.jpg"));
-    currentBackground = backgroundTextures[currentBackgroundIndex];
+    backgroundTextures =
+    {
+        IMG_LoadTexture(renderer, "image/background1.jpg"),
+        IMG_LoadTexture(renderer, "image/background2.jpg"),
+        IMG_LoadTexture(renderer, "image/background3.jpg"),
+        IMG_LoadTexture(renderer, "image/background4.jpg"),
+        IMG_LoadTexture(renderer, "image/background5.jpg")
+    };
 
-    pipeTopTexture = IMG_LoadTexture(renderer, "image/pipe_top.png");
-    pipeBottomTexture = IMG_LoadTexture(renderer, "image/pipe_bottom.png");
+    pipeTops =
+    {
+        IMG_LoadTexture(renderer, "image/pipe_top1.png"),
+        IMG_LoadTexture(renderer, "image/pipe_top2.png"),
+        IMG_LoadTexture(renderer, "image/pipe_top3.png"),
+        IMG_LoadTexture(renderer, "image/pipe_top4.png"),
+        IMG_LoadTexture(renderer, "image/pipe_top5.png")
+    };
+
+    pipeBottoms =
+    {
+        IMG_LoadTexture(renderer, "image/pipe_bottom1.png"),
+        IMG_LoadTexture(renderer, "image/pipe_bottom2.png"),
+        IMG_LoadTexture(renderer, "image/pipe_bottom3.png"),
+        IMG_LoadTexture(renderer, "image/pipe_bottom4.png"),
+        IMG_LoadTexture(renderer, "image/pipe_bottom5.png")
+    };
+
+    pipeTopTexture = pipeTops[pipeTopTextureIndex];
+    pipeBottomTexture = pipeBottoms[pipeBottomTextureIndex];
 
     birdRect = { 100, birdY, BIRD_WIDTH, BIRD_HEIGHT };
 

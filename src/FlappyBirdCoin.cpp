@@ -48,8 +48,10 @@ void FlappyBirdGame::checkCoinCollision()
     for (auto& coin : coins)
     {
         if (!coin.collected &&
-                birdRect.x + BIRD_WIDTH >= coin.x && birdRect.x <= coin.x + 50 &&
-                birdRect.y + BIRD_HEIGHT >= coin.y && birdRect.y <= coin.y + 50)
+            birdRect.x + BIRD_WIDTH >= coin.x &&
+            birdRect.x <= coin.x + 50 &&
+            birdRect.y + BIRD_HEIGHT >= coin.y &&
+            birdRect.y <= coin.y + 50)
         {
             coin.collected = true;
             coinCount++;

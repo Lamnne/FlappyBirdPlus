@@ -59,7 +59,10 @@ public:
     FlappyBirdGame();
     ~FlappyBirdGame();
     int GRAVITY = 0;
-    void renderText(const string& text, int x, int y, SDL_Color color);
+    void renderText(const string& text,
+                    int x,
+                    int y,
+                    SDL_Color color);
     void showMenu();
     void showSettings();
     void run();
@@ -76,7 +79,8 @@ public:
     void startGame();
     void loadHighScore();
     void saveHighScore();
-    void generateCoin(int pipeX, int pipeY);
+    void generateCoin(int pipeX,
+                      int pipeY);
     void checkCoinCollision();
     void displayCoinCount();
     void loadTotalCoins();
@@ -97,7 +101,10 @@ public:
     bool shouldQuit;
     void generateShield();
     void checkShieldCollision();
-    bool isPositionValid(int x, int y, int width, int height);
+    bool isPositionValid(int x,
+                         int y,
+                         int width,
+                         int height);
 private:
     SDL_Window* window;
 
@@ -187,6 +194,7 @@ private:
 
     TTF_Font* font;
     vector<Coin> coins;
+
     vector<SDL_Texture*> backgroundTextures;
     SDL_Texture* currentBackground;
     size_t currentBackgroundIndex;
@@ -194,10 +202,13 @@ private:
     int backgroundSpeed = 2;
 
     vector<Pipe> pipes;
+    vector<SDL_Texture*> pipeTops;
+    vector<SDL_Texture*> pipeBottoms;
     SDL_Texture* pipeTopTexture;
     SDL_Texture* pipeBottomTexture;
     size_t pipeTopTextureIndex;
     size_t pipeBottomTextureIndex;
+
     vector<Shield> shields;
     Mix_Music* menuMusic;
     Mix_Music* gameMusic;

@@ -11,18 +11,21 @@ bool FlappyBirdGame::sure()
         while (SDL_PollEvent(&e) != 0)
         {
             if (e.type == SDL_QUIT) confirmQuit = true;
-            if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT)
+            if (e.type == SDL_MOUSEBUTTONDOWN
+                && e.button.button == SDL_BUTTON_LEFT)
             {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-                if (mouseX >= 350 && mouseX <= 450 && mouseY >= 450 && mouseY <= 500)
+                if (mouseX >= 350 && mouseX <= 450
+                    && mouseY >= 450 && mouseY <= 500)
                 {
                     SDL_Delay(200);
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     result = true;
                     confirmQuit = true;
                 }
-                if (mouseX >= 800 && mouseX <= 900 && mouseY >= 450 && mouseY <= 500)
+                if (mouseX >= 800 && mouseX <= 900
+                    && mouseY >= 450 && mouseY <= 500)
                 {
                     SDL_Delay(200);
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
@@ -63,7 +66,9 @@ void FlappyBirdGame::oops()
     {
         while (SDL_PollEvent(&e) != 0)
         {
-            if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT)confirmQuit = true;
+            if (e.type == SDL_MOUSEBUTTONDOWN
+                && e.button.button == SDL_BUTTON_LEFT)
+                    confirmQuit = true;
         }
         SDL_Rect oopRect = {200, 50, 800, 600};
         SDL_Texture* oopTexture = IMG_LoadTexture(renderer, "image/oop.png");
@@ -272,30 +277,35 @@ void FlappyBirdGame::showWardrobe()
                 shouldQuit = true;
                 break;
             }
-            if (e.type == SDL_MOUSEBUTTONDOWN && e.button.button == SDL_BUTTON_LEFT)
+            if (e.type == SDL_MOUSEBUTTONDOWN
+                && e.button.button == SDL_BUTTON_LEFT)
             {
                 int mouseX, mouseY;
                 SDL_GetMouseState(&mouseX, &mouseY);
-                if (mouseX >= 0 && mouseX <= 130 && mouseY >= 0 && mouseY <= 70)
+                if (mouseX >= 0 && mouseX <= 130
+                    && mouseY >= 0 && mouseY <= 70)
                 {
                     SDL_Delay(200);
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     showMenu();
                     return;
                 }
-                if (mouseX >= 1000 && mouseX <= 1050 && mouseY >= 300 && mouseY <= 350)
+                if (mouseX >= 1000 && mouseX <= 1050
+                    && mouseY >= 300 && mouseY <= 350)
                 {
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     if (choose == 9) choose = 0;
                     else choose++;
                 }
-                if (mouseX >= 650 && mouseX <= 700 && mouseY >= 300 && mouseY <= 350)
+                if (mouseX >= 650 && mouseX <= 700
+                    && mouseY >= 300 && mouseY <= 350)
                 {
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     if (choose == 0) choose = 9;
                     else choose--;
                 }
-                if (mouseX >= 830 && mouseX <= 930 && mouseY >= 420 && mouseY <= 480)
+                if (mouseX >= 830 && mouseX <= 930
+                    && mouseY >= 420 && mouseY <= 480)
                     {
                     if (soundEnabled) Mix_PlayChannel(-1, clickSound, 0);
                     if (unlockedSkins[choose]) {
