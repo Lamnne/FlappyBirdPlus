@@ -73,10 +73,10 @@ void FlappyBirdGame::updateGame()
     }), shields.end());
 
 
-    if (!airplaneActive && pipesSinceLastAirplane > 5)
+    if (!airplaneActive && pipesSinceLastAirplane > 1 && !hasShield)
     {
         int chance = rand() % 100;
-        if (chance <= 50)
+        if (chance <= 90)
         {
             airplaneActive = true;
             airplane.active = true;
